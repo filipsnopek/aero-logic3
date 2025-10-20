@@ -1,12 +1,12 @@
-import { Riddle } from './@types/Riddle';
+import { Riddle } from '../domain/riddle/RiddleService';
 
-export function getRandomRiddleId(riddles: Riddle[]): string {
+function getRandomRiddleId(riddles: Riddle[]): string {
     const ids = riddles.map(({ id: riddleId }) => riddleId);
 
     return ids[Math.floor(Math.random() * ids.length)];
 }
 
-export function getInterval(time: Date): string {
+function getInterval(time: Date): string {
     const hours = String(time.getHours()).padStart(2, '0');
     const hoursStr = Number(hours);
 
@@ -25,7 +25,7 @@ export function getInterval(time: Date): string {
     return 'Busy Times'
 }
 
-export function getFormattedDate(date: Date): string {
+function getFormattedDate(date: Date): string {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0'); // +1 because months are 0-indexed
     const day = String(date.getDate()).padStart(2, '0');
@@ -33,4 +33,12 @@ export function getFormattedDate(date: Date): string {
     const minutes = String(date.getMinutes()).padStart(2, '0');
 
     return `${year}-${month}-${day} ${hours} ${minutes}`
+}
+
+export function createLandingPageModel(date: Date, riddles: Riddle[]) {
+    return {
+        workInterval: getInterval(date),
+        formattedDate: getFormattedDate(date),
+        randomRiddleId: getRandomRiddleId(riddles),
+    };
 }
