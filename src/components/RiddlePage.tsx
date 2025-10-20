@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import classNames from 'classnames';
-import { getAnswerFor } from 'riddle-exam';
+import { getAnswerFor } from '../../packages/riddle-exam';
 
 type Riddle = {
     id: string;

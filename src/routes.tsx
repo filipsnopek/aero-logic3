@@ -1,5 +1,5 @@
-import { LandingPage } from './LandingPage';
-import { RiddlePage } from './RiddlePage';
+import { LandingPage } from './components/LandingPage';
+import { RiddlePage } from './components/RiddlePage';
 
 export const routes = [
     {
