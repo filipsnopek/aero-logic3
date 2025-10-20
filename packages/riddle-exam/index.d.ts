@@ -1,1 +1,1 @@
-export function getAnswerFor(riddleId: string): Promise<{ id: string, text: string }>;
+export function getAnswerFor(riddleId: string | undefined): Promise<{ id: string, text: string }>;

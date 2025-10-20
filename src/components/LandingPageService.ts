@@ -1,10 +1,4 @@
-import { Riddle } from '../domain/riddle/RiddleService';
-
-function getRandomRiddleId(riddles: Riddle[]): string {
-    const ids = riddles.map(({ id: riddleId }) => riddleId);
-
-    return ids[Math.floor(Math.random() * ids.length)];
-}
+import { getRandomRiddleId, Riddle } from '../domain/riddle/RiddleService';
 
 function getInterval(time: Date): string {
     const hours = String(time.getHours()).padStart(2, '0');

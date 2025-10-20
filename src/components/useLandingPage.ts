@@ -1,5 +1,5 @@
 import { createLandingPageModel } from './LandingPageService';
-import { useRiddleList } from '../domain/riddle/useRiddleList';
+import { useRiddleList } from '../domain/riddle/useRiddle';
 
 export const useLandingPage = () => {
     const riddles = useRiddleList();
