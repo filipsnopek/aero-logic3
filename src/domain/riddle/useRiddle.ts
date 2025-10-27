@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchRiddlesById, fetchRiddlesCollection } from './RiddleAdapter';
 import { Riddle } from './RiddleService';
 import { useParams } from 'react-router-dom';
-import { getAnswerFor } from 'riddle-exam';
+import { useRiddleCorrectAnswer } from './RiddleAnswerProvider';
 
 export function useRiddleList() {
     const [riddleList, setRiddleList] = useState<Riddle[]>([])
@@ -30,6 +30,7 @@ export function useRiddleById() {
 export function useRiddleAnswer(riddleId?: string) {
     const [isRiddleSuccessful, setIsRiddleSuccessful] = useState<{ id: string }>();
     const [selected, setSelected] = useState<string>();
+    const getAnswerFor = useRiddleCorrectAnswer();
 
     const handleClick = async (answerId: string) => {
         if (selected) {
@@ -38,7 +39,7 @@ export function useRiddleAnswer(riddleId?: string) {
 
         setSelected(answerId);
 
-        const data = await getAnswerFor(riddleId);
+        const data = await getAnswerFor(riddleId!);
 
         setIsRiddleSuccessful(data);
     };
