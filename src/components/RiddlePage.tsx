@@ -27,6 +27,7 @@ export const RiddlePage = () => {
             <ul>
                 {sorted.map((answer) => (
                     <li
+                        data-test={`riddle-option-${answer.id}`}
                         key={answer.id}
                         onClick={() => handleClick(answer.id)}
                         className={classNames('border py-2 pl-3 pr-2 my-1', {
@@ -47,12 +48,12 @@ export const RiddlePage = () => {
                 ))}
             </ul>
             {selected && isRiddleSuccessful && selected === isRiddleSuccessful.id && (
-                <div className="bg-green-400 my-6 p-3">
+                <div data-test='riddle-success-message' className="bg-green-400 my-6 p-3">
                     {"Great job! You're right 🙏"}
                 </div>
             )}
             {selected && isRiddleSuccessful && selected !== isRiddleSuccessful.id && (
-                <div className="bg-red-300  my-6 p-3">
+                <div data-test='riddle-error-message' className="bg-red-300  my-6 p-3">
                     {'This time your answer is wrong.'}
                 </div>
             )}
