@@ -22,7 +22,7 @@ export const RiddlePage = () => {
 
     return (
         <main className="text-lg">
-            <p dangerouslySetInnerHTML={{ __html: riddle.contents }} className="mb-16" />
+            <p data-test="riddle-contents" dangerouslySetInnerHTML={{ __html: riddle.contents }} className="mb-16" />
             <p className="mb-5">Possible answers:</p>
             <ul>
                 {sorted.map((answer) => (
