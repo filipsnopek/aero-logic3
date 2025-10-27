@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchRiddlesById, fetchRiddlesCollection } from './RiddleAdapter';
 import { Riddle } from './RiddleService';
 import { useParams } from 'react-router-dom';
-import { getAnswerFor } from '../../../packages/riddle-exam';
+import { getAnswerFor } from 'riddle-exam';
 
 export function useRiddleList() {
     const [riddleList, setRiddleList] = useState<Riddle[]>([])
